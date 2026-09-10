@@ -1,0 +1,1387 @@
+/* Menu Overlay Style */
+.menu-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(15, 23, 42, 0.95);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+}
+
+.menu-card {
+background: #1e293b;
+padding: 30px;
+border-radius: 20px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+text-align: center;
+width: 90%;
+max-width: 380px;
+border: 2px solid #38bdf8;
+}
+
+.game-logo {
+color: #facc15;
+font-family: 'Arial Black', sans-serif;
+font-size: 28px;
+margin-bottom: 25px;
+text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+/* Team Mode Button Styling */
+.btn-team {
+background: linear-gradient(135deg, #ef4444 0%, #eab308 50%, #22c55e 50%, #3b82f6 100%);
+color: #fff;
+font-weight: bold;
+text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+
+/* In-Game Exit Button Position */
+.exit-btn {
+position: absolute;
+top: 15px;
+right: 15px;
+background: #dc2626;
+color: white;
+border: none;
+padding: 10px 18px;
+font-size: 14px;
+font-weight: bold;
+border-radius: 8px;
+cursor: pointer;
+box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+z-index: 1000;
+transition: transform 0.2s, background 0.2s;
+}
+
+.exit-btn:hover {
+background: #b91c1c;
+transform: scale(1.05);
+}
+
+
+
+.menu-buttons {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+
+.btn {
+padding: 14px 20px;
+font-size: 16px;
+font-weight: bold;
+border: none;
+border-radius: 12px;
+cursor: pointer;
+transition: transform 0.2s, background 0.2s;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+}
+
+.btn:hover {
+transform: scale(1.03);
+}
+
+.btn-primary { background: #2563eb; }
+.btn-success { background: #16a34a; }
+.btn-warning { background: #d97706; }
+.btn-secondary { background: #475569; }
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root {
+    --red: #e92b25;
+    --red-dark: #9f0905;
+
+    --green: #22964a;
+    --green-dark: #075e27;
+
+    --yellow: #f7bd00;
+    --yellow-dark: #a96d00;
+
+    --blue: #2946c9;
+    --blue-dark: #0b197c;
+
+    --cell-border: #353535;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #34463d,
+            #101612 72%
+        );
+
+    color: #ffffff;
+
+    padding: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+/* =========================================================
+   GAME SHELL
+========================================================= */
+
+.game-shell {
+    width: 100%;
+    max-width: 760px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 10px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-icon {
+    font-size: 34px;
+}
+
+.brand h1 {
+    font-size: clamp(18px, 4vw, 28px);
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.brand p {
+    margin-top: 4px;
+
+    color: #c8d0ca;
+
+    font-size: 11px;
+}
+
+.new-game-btn {
+    border: 0;
+
+    border-radius: 10px;
+
+    padding: 11px 15px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #48554e,
+            #222b25
+        );
+
+    color: white;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 0 #0c100d;
+}
+
+.new-game-btn:active {
+    transform: translateY(3px);
+
+    box-shadow:
+        0 1px 0 #0c100d;
+}
+
+
+/* =========================================================
+   STATUS PANEL
+========================================================= */
+
+.status-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+.turn-indicator,
+.game-message {
+    background:
+        rgba(0, 0, 0, 0.35);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 10px;
+
+    padding: 9px 12px;
+
+    font-size: 11px;
+}
+
+.turn-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    white-space: nowrap;
+}
+
+#turnColorDot {
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: var(--red);
+
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.game-message {
+    flex: 1;
+
+    text-align: right;
+
+    color: #e4e9e5;
+}
+
+
+/* =========================================================
+   BOARD WRAPPER
+========================================================= */
+
+.board-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   MAIN 15 X 15 BOARD
+========================================================= */
+
+.ludo-board {
+    position: relative;
+
+    width: min(96vw, 720px);
+
+    aspect-ratio: 1 / 1;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(15, 1fr);
+
+    grid-template-rows:
+        repeat(15, 1fr);
+
+    background: #f2f2f2;
+
+    border: 5px solid #171717;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================================
+   NORMAL BOARD CELL
+========================================================= */
+
+.board-cell {
+    min-width: 0;
+    min-height: 0;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #e2e5e8
+        );
+
+    border:
+        1px solid var(--cell-border);
+}
+
+
+/* =========================================================
+   OUTER TRACK
+========================================================= */
+
+.outer-track {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #d8dde2
+        );
+}
+
+
+/* =========================================================
+   HOME PATHS
+========================================================= */
+
+.red-path {
+    background:
+        linear-gradient(
+            145deg,
+            #ff716b,
+            var(--red)
+        ) !important;
+}
+
+.green-path {
+    background:
+        linear-gradient(
+            145deg,
+            #70df8b,
+            var(--green)
+        ) !important;
+}
+
+.yellow-path {
+    background:
+        linear-gradient(
+            145deg,
+            #ffec68,
+            var(--yellow)
+        ) !important;
+}
+
+.blue-path {
+    background:
+        linear-gradient(
+            145deg,
+            #7288ff,
+            var(--blue)
+        ) !important;
+}
+
+
+/* =========================================================
+   SAFE STAR CELLS
+========================================================= */
+
+.safe-star-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.safe-star-cell.colored-red {
+    background:
+        linear-gradient(
+            145deg,
+            #ff766f,
+            var(--red)
+        ) !important;
+}
+
+.safe-star-cell.colored-green {
+    background:
+        linear-gradient(
+            145deg,
+            #74df8f,
+            var(--green)
+        ) !important;
+}
+
+.safe-star-cell.colored-yellow {
+    background:
+        linear-gradient(
+            145deg,
+            #ffef73,
+            var(--yellow)
+        ) !important;
+}
+
+.safe-star-cell.colored-blue {
+    background:
+        linear-gradient(
+            145deg,
+            #778dff,
+            var(--blue)
+        ) !important;
+}
+
+.safe-star {
+    display: block;
+
+    color: white;
+
+    font-size:
+        clamp(11px, 3vw, 27px);
+
+    line-height: 1;
+
+    transform: none;
+
+    text-align: center;
+
+    text-shadow:
+        0 2px 3px rgba(0, 0, 0, 0.8);
+
+    -webkit-text-stroke:
+        1px rgba(0, 0, 0, 0.5);
+}
+
+.standard-safe {
+    background:
+        linear-gradient(
+            145deg,
+            #f8f8f8,
+            #c8cdd2
+        ) !important;
+}
+
+.standard-safe .safe-star {
+    color: #555;
+}
+
+
+/* =========================================================
+   ENTRY ARROWS
+========================================================= */
+
+.entry-arrow {
+    font-size:
+        clamp(13px, 3vw, 26px);
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    color: #222;
+
+    text-shadow:
+        0 1px 1px white;
+}
+
+
+/* =========================================================
+   HOME BASES
+========================================================= */
+
+.home-base {
+    position: absolute;
+
+    width: 40%;
+    height: 40%;
+
+    z-index: 5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border:
+        2px solid #202020;
+}
+
+.home-red {
+    top: 0;
+    left: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff514a,
+            var(--red-dark)
+        );
+}
+
+.home-green {
+    top: 0;
+    right: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #55d776,
+            var(--green-dark)
+        );
+}
+
+.home-blue {
+    bottom: 0;
+    left: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #536dff,
+            var(--blue-dark)
+        );
+}
+
+.home-yellow {
+    bottom: 0;
+    right: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffe152,
+            var(--yellow-dark)
+        );
+}
+
+
+/* =========================================================
+   INNER HOME BOX
+========================================================= */
+
+.home-inner {
+    width: 67%;
+    height: 67%;
+
+    padding: 10%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    grid-template-rows:
+        repeat(2, 1fr);
+
+    gap: 13%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #dedede
+        );
+
+    border:
+        3px solid #252525;
+
+    border-radius: 5px;
+
+    box-shadow:
+        inset 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.home-pawn-slot {
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================================================
+   CENTER FINISH ZONE
+========================================================= */
+
+.finish-zone {
+    position: absolute;
+
+    left: 40%;
+    top: 40%;
+
+    width: 20%;
+    height: 20%;
+
+    z-index: 20;
+
+    overflow: hidden;
+
+    border:
+        2px solid #202020;
+
+    background: white;
+}
+
+.finish-red {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 50%;
+    height: 100%;
+
+    background: var(--red);
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 50%,
+            0 100%
+        );
+}
+
+.finish-green {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 50%;
+
+    background: var(--green);
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+}
+
+.finish-yellow {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 50%;
+    height: 100%;
+
+    background: var(--yellow);
+
+    clip-path:
+        polygon(
+            100% 0,
+            100% 100%,
+            0 50%
+        );
+}
+
+.finish-blue {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 50%;
+
+    background: var(--blue);
+
+    clip-path:
+        polygon(
+            0 100%,
+            100% 100%,
+            50% 0
+        );
+}
+
+.finish-tokens {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 100%;
+    height: 100%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-content: center;
+
+    gap: 2px;
+
+    z-index: 35;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   PAWNS - GLOSSY 3D PEG STYLE
+========================================================= */
+
+.pawn {
+    position: relative;
+
+    width: 74%;
+    height: 74%;
+
+    min-width: 10px;
+    min-height: 10px;
+
+    max-width: 42px;
+    max-height: 42px;
+
+    border-radius: 50% 50% 42% 42%;
+
+    border:
+        1px solid rgba(0, 0, 0, 0.65);
+
+    cursor: pointer;
+
+    z-index: 50;
+
+    transform: scale(1);
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+
+    box-shadow:
+        inset 4px 5px 7px rgba(255, 255, 255, 0.58),
+        inset -5px -7px 8px rgba(0, 0, 0, 0.4),
+        0 3px 5px rgba(0, 0, 0, 0.45);
+}
+
+.pawn::before {
+    content: "";
+
+    position: absolute;
+
+    width: 48%;
+    height: 32%;
+
+    left: 18%;
+    top: 13%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0)
+        );
+}
+
+.pawn::after {
+    content: "";
+
+    position: absolute;
+
+    width: 74%;
+    height: 32%;
+
+    left: 13%;
+    bottom: -15%;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 0, 0, 0.3);
+
+    filter: blur(2px);
+
+    z-index: -1;
+}
+
+.pawn-red {
+    background:
+        radial-gradient(
+            circle at 32% 25%,
+            #ffb1ad,
+            #f3312b 40%,
+            #c50e09 72%,
+            #710000
+        );
+}
+
+.pawn-green {
+    background:
+        radial-gradient(
+            circle at 32% 25%,
+            #b7f6c0,
+            #32bd58 40%,
+            #087e2d 72%,
+            #034516
+        );
+}
+
+.pawn-yellow {
+    background:
+        radial-gradient(
+            circle at 32% 25%,
+            #fff7b0,
+            #ffd32c 40%,
+            #e4a500 72%,
+            #825600
+        );
+}
+
+.pawn-blue {
+    background:
+        radial-gradient(
+            circle at 32% 25%,
+            #bdc9ff,
+            #4865ee 40%,
+            #1d32b2 72%,
+            #07115c
+        );
+}
+
+.pawn.selectable {
+    animation: pawnPulse 0.75s infinite;
+
+    outline:
+        2px solid white;
+
+    filter: brightness(1.2);
+}
+
+@keyframes pawnPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+
+/* =========================================================
+   3D DICE
+========================================================= */
+
+.dice-control {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    z-index: 100;
+
+    transform:
+        translate(-50%, -50%);
+
+    pointer-events: auto;
+}
+
+.dice-scene {
+    width: clamp(54px, 10vw, 82px);
+    height: clamp(54px, 10vw, 82px);
+
+    perspective: 700px;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dice {
+    position: relative;
+
+    width: 70%;
+    height: 70%;
+
+    transform-style: preserve-3d;
+
+    transform:
+        rotateX(-20deg)
+        rotateY(-25deg);
+
+    transition:
+        transform 0.9s cubic-bezier(.2, .8, .2, 1);
+}
+
+.dice-face {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 12%;
+
+    border:
+        2px solid #5e3b19;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffe2a0,
+            #bb7029
+        );
+
+    box-shadow:
+        inset 4px 4px 8px rgba(255, 255, 255, 0.6),
+        inset -5px -6px 8px rgba(59, 27, 4, 0.35),
+        0 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+.face-one {
+    transform: translateZ(calc(clamp(54px, 10vw, 82px) * 0.35));
+}
+
+.face-two {
+    transform:
+        rotateY(180deg)
+        translateZ(calc(clamp(54px, 10vw, 82px) * 0.35));
+}
+
+.face-three {
+    transform:
+        rotateY(90deg)
+        translateZ(calc(clamp(54px, 10vw, 82px) * 0.35));
+}
+
+.face-four {
+    transform:
+        rotateY(-90deg)
+        translateZ(calc(clamp(54px, 10vw, 82px) * 0.35));
+}
+
+.face-five {
+    transform:
+        rotateX(90deg)
+        translateZ(calc(clamp(54px, 10vw, 82px) * 0.35));
+}
+
+.face-six {
+    transform:
+        rotateX(-90deg)
+        translateZ(calc(clamp(54px, 10vw, 82px) * 0.35));
+}
+
+
+/* =========================================================
+   DICE PIPS
+========================================================= */
+
+.pip {
+    position: absolute;
+
+    width: 17%;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #593713,
+            #120b04
+        );
+
+    box-shadow:
+        inset 1px 1px 2px rgba(255, 255, 255, 0.35),
+        0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.center-pip {
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.top-left {
+    left: 17%;
+    top: 17%;
+}
+
+.top-right {
+    right: 17%;
+    top: 17%;
+}
+
+.middle-left {
+    left: 17%;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+.middle-right {
+    right: 17%;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+.bottom-left {
+    left: 17%;
+    bottom: 17%;
+}
+
+.bottom-right {
+    right: 17%;
+    bottom: 17%;
+}
+
+
+/* =========================================================
+   BOTTOM CONTROLS
+========================================================= */
+
+.bottom-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 13px;
+}
+
+.roll-button {
+    border: 0;
+
+    border-radius: 30px;
+
+    padding: 12px 22px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffcc42,
+            #dd7800
+        );
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 0 #8a4700,
+        0 9px 20px rgba(0, 0, 0, 0.3);
+}
+
+.roll-button:hover {
+    filter: brightness(1.08);
+}
+
+.roll-button:active {
+    transform: translateY(4px);
+
+    box-shadow:
+        0 1px 0 #8a4700;
+}
+
+.roll-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dice-result {
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(0, 0, 0, 0.35);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   PLAYERS BAR
+========================================================= */
+
+.players-bar {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 6px;
+
+    margin-top: 12px;
+}
+
+.player-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 9px 4px;
+
+    border-radius: 9px;
+
+    border:
+        2px solid transparent;
+
+    background:
+        rgba(0, 0, 0, 0.3);
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.player-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+}
+
+.red-card .player-dot {
+    background: var(--red);
+}
+
+.green-card .player-dot {
+    background: var(--green);
+}
+
+.yellow-card .player-dot {
+    background: var(--yellow);
+}
+
+.blue-card .player-dot {
+    background: var(--blue);
+}
+
+.player-card.active-player {
+    border-color: white;
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+
+/* =========================================================
+   VICTORY POPUP
+========================================================= */
+
+.victory-popup {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0, 0, 0, 0.75);
+}
+
+.victory-popup.hidden {
+    display: none;
+}
+
+.victory-box {
+    width: min(90vw, 380px);
+
+    padding: 30px 25px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #35453b,
+            #111a14
+        );
+
+    border:
+        2px solid rgba(255, 255, 255, 0.2);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+.victory-trophy {
+    font-size: 60px;
+
+    margin-bottom: 10px;
+}
+
+.victory-box h2 {
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+.victory-box p {
+    color: #d2dad4;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+.victory-box button {
+    border: 0;
+
+    border-radius: 30px;
+
+    padding: 13px 25px;
+
+    background:
+        linear-gradient(
+            #ffcc42,
+            #dc7600
+        );
+
+    color: white;
+
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 6px;
+    }
+
+    .game-header {
+        margin-bottom: 7px;
+    }
+
+    .brand-icon {
+        font-size: 27px;
+    }
+
+    .brand p {
+        display: none;
+    }
+
+    .new-game-btn {
+        padding: 9px 10px;
+        font-size: 9px;
+    }
+
+    .status-panel {
+        gap: 5px;
+        margin-bottom: 7px;
+    }
+
+    .turn-indicator,
+    .game-message {
+        padding: 7px 8px;
+        font-size: 9px;
+    }
+
+    .game-message {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .ludo-board {
+        width: 98vw;
+
+        border-width: 3px;
+        border-radius: 4px;
+    }
+
+    .board-cell {
+        border-width: 0.6px;
+    }
+
+    .home-base {
+        border-width: 1px;
+    }
+
+    .home-inner {
+        border-width: 1px;
+    }
+
+    .finish-zone {
+        border-width: 1px;
+    }
+
+    .bottom-controls {
+        margin-top: 9px;
+    }
+
+    .roll-button {
+        padding: 10px 17px;
+        font-size: 11px;
+    }
+
+    .dice-result {
+        padding: 9px 10px;
+        font-size: 10px;
+    }
+
+    .player-card {
+        padding: 7px 2px;
+        font-size: 8px;
+    }
+
+    .player-dot {
+        width: 7px;
+        height: 7px;
+    }
+}
